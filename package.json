@@ -1,0 +1,36 @@
+{
+  "name": "data-persistance",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch './**/*' -e ts --exec 'ts-node --files .'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/config": "0.0.34",
+    "@types/graphql": "^14.2.0",
+    "@types/koa": "^2.0.48",
+    "@types/koa-logger": "^3.1.1",
+    "@types/koa-router": "^7.0.40",
+    "@types/mongoose": "^5.3.24",
+    "apollo-server-koa": "^2.4.8",
+    "config": "^3.0.1",
+    "graphql": "^14.2.1",
+    "koa": "^2.7.0",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.4.22",
+    "nodemon": "^1.18.10",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.4.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "jest": "^24.7.1",
+    "prettier": "^1.16.4",
+    "ts-lint": "^4.5.1"
+  }
+}

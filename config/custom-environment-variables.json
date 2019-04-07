@@ -1,0 +1,10 @@
+{
+	"mongodb": {
+		"dbName": "MONGODB_DBNAME",
+		"host": "MONGODB_HOST",
+		"pass": "MONGODB_PASS",
+		"port": "MONGODB_PORT",
+		"user": "MONGODB_USER"
+	},
+	"port": "PORT"
+}
