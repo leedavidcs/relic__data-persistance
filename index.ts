@@ -1,6 +1,6 @@
 import config from "config";
-import { Server } from "./src/server";
 import { Logger } from "./src/logger";
+import { Server } from "./src/server";
 
 const port: number = config.get<number>("port");
 const server: Server = new Server(port);

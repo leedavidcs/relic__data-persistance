@@ -1,5 +1,6 @@
 import { GraphQLObjectType, GraphQLSchema, GraphQLString } from "graphql";
 
+/* tslint:disable:object-literal-sort-keys */
 export const schema = new GraphQLSchema({
 	query: new GraphQLObjectType({
 		name: "rootQueries",
@@ -22,3 +23,4 @@ export const schema = new GraphQLSchema({
 		}
 	})
 });
+/* tslint:enable:object-literal-sort-keys */

@@ -1,7 +1,7 @@
 import { ApolloServer } from "apollo-server-koa";
 import Koa from "koa";
-import { schema } from "./schemas";
 import { Logger } from "../logger";
+import { schema } from "./schemas";
 
 const apollo: ApolloServer = new ApolloServer({
 	schema

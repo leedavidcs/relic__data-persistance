@@ -1,8 +1,8 @@
 import Http, { RequestListener } from "http";
 import Koa from "koa";
-import { connectToDatabase } from "./models";
 import { applyGraphQL } from "./graphql";
 import { applyHandlers } from "./handlers";
+import { connectToDatabase } from "./models";
 
 /**
  * @class Server

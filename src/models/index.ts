@@ -11,9 +11,7 @@ export const connectToDatabase = async (): Promise<void> => {
 
 	try {
 		await Mongoose.connect(`mongodb://${host}:${port}`, {
-			dbName,
-			pass,
-			user,
+			...{ dbName, pass, user },
 			useNewUrlParser: true
 		});
 	} catch (err) {
