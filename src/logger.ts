@@ -6,7 +6,7 @@ const consoleFormat = process.env.NODE_ENV === "production" ? Winston.format.pre
 const getFilePath = (filename: string): string => Path.join(__dirname, "../", "logs", filename);
 
 const ERROR_LOG_FILE_PATH: string = getFilePath("error.log");
-const COMBINED_LOG_FILE_PATH: string  = getFilePath("combined.log");
+const COMBINED_LOG_FILE_PATH: string = getFilePath("combined.log");
 
 export const Logger = Winston.createLogger({
 	format: Winston.format.json(),
@@ -20,13 +20,13 @@ export const Logger = Winston.createLogger({
 			filename: ERROR_LOG_FILE_PATH,
 			level: "error",
 			options: {
-				flags: 'w'
+				flags: "w"
 			}
 		}),
 		new transports.File({
 			filename: COMBINED_LOG_FILE_PATH,
 			options: {
-				flags: 'w'
+				flags: "w"
 			}
 		})
 	]

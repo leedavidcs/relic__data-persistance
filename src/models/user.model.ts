@@ -11,29 +11,30 @@ interface IUser extends Document, SchemaTimestampsConfig {
 	username: string;
 }
 
-const UserSchema: Schema<IUser> = new Schema({
-	authProvider: {
-		enum: [
-			AuthProvider.Local
-		],
-		required: true,
-		type: String
+const UserSchema: Schema<IUser> = new Schema(
+	{
+		authProvider: {
+			enum: [AuthProvider.Local],
+			required: true,
+			type: String
+		},
+		email: {
+			required: true,
+			type: String
+		},
+		password: {
+			required: false,
+			type: String
+		},
+		username: {
+			required: true,
+			type: String,
+			unique: true
+		}
 	},
-	email: {
-		required: true,
-		type: String
-	},
-	password: {
-		required: false,
-		type: String
-	},
-	username: {
-		required: true,
-		type: String,
-		unique: true
+	{
+		timestamps: true
 	}
-}, {
-	timestamps: true
-});
+);
 
-export const User = model<IUser>('User', UserSchema);
+export const User = model<IUser>("User", UserSchema);

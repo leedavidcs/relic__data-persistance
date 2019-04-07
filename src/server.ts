@@ -17,7 +17,7 @@ export class Server {
 		this.app = new Koa();
 
 		const requestListener: RequestListener = this.app.callback();
-		
+
 		this.httpServer = new Http.Server(requestListener);
 	}
 

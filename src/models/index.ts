@@ -19,6 +19,6 @@ export const connectToDatabase = async (): Promise<void> => {
 
 		return;
 	}
-	
+
 	Logger.info(`Connected to MongoDB database: ${dbName}`);
 };
