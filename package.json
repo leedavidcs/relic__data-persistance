@@ -4,6 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
+    "audit-ci": "audit-ci --moderate --report --package-manager npm",
 		"format": "prettier ./**/*.{json,js,ts} -l",
 		"format:fix": "npm run format -- --write",
 		"lint": "tslint -p .",
@@ -35,6 +36,7 @@
 		"winston": "^3.2.1"
 	},
 	"devDependencies": {
+		"audit-ci": "^1.5.0",
 		"jest": "^24.7.1",
 		"prettier": "^1.16.4",
 		"tslint": "^5.15.0",
