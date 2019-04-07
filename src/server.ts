@@ -2,6 +2,7 @@ import Http, { RequestListener } from "http";
 import Koa from "koa";
 import { connectToDatabase } from "./models";
 import { applyGraphQL } from "./graphql";
+import { applyHandlers } from "./handlers";
 
 /**
  * @class Server
@@ -45,6 +46,7 @@ export class Server {
 	private async configure(): Promise<void> {
 		await connectToDatabase();
 
+		applyHandlers(this.app);
 		applyGraphQL(this.app);
 	}
 }
