@@ -1,2 +1,13 @@
-logs
+# dependencies
 node_modules
+
+# logs
+logs
+
+# testing
+.nyc_output
+coverage
+test-reports
+
+# misx
+sonar-project.properties

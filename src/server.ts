@@ -2,7 +2,7 @@ import Http, { RequestListener } from "http";
 import Koa from "koa";
 import { applyGraphQL } from "./graphql";
 import { applyHandlers } from "./handlers";
-import { connectToDatabase } from "./models";
+import { closeDatabase, connectToDatabase } from "./models";
 
 /**
  * @class Server
@@ -32,11 +32,23 @@ export class Server {
 	}
 
 	public stop(): Promise<void> {
-		return new Promise<void>((resolve) => {
+		return new Promise<void>(async (resolve) => {
+			if (!this.isRunning) {
+				resolve();
+
+				return;
+			}
+
+			await this.prepareStop();
+
 			this.httpServer.close(() => {
 				resolve();
 			});
 		});
+	}
+
+	public get instance(): Http.Server {
+		return this.httpServer;
 	}
 
 	public get isRunning(): boolean {
@@ -48,5 +60,9 @@ export class Server {
 
 		applyHandlers(this.app);
 		applyGraphQL(this.app);
+	}
+
+	private async prepareStop(): Promise<void> {
+		await closeDatabase();
 	}
 }

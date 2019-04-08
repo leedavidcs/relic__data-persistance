@@ -3,11 +3,11 @@ import Koa from "koa";
 import { Logger } from "../logger";
 import { schema } from "./schemas";
 
-const apollo: ApolloServer = new ApolloServer({
-	schema
-});
-
 export const applyGraphQL = (app: Koa): void => {
+	const apollo: ApolloServer = new ApolloServer({
+		schema
+	});
+
 	apollo.applyMiddleware({
 		app,
 		path: "/graphql"
