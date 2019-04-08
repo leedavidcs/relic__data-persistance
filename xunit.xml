@@ -1,5 +1,0 @@
-<testExecutions version="1">
-<file path="tests/server.ts">
-<testCase name="Server: Should be a constructor" duration="1"/>
-</file>
-</testExecutions>
