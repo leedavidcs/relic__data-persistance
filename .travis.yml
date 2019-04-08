@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - "10.15.1"
+cache: npm
+stages:
+  - audit
+  - lint
+  - format
+  - test
+script: echo "Running build..."
+jobs:
+  include:
+    - stage: audit
+      script: npm run lint
+    
+    - stage: lint
+      script: npm run lint
+    
+    - stage: format
+      script: npm run format
+
+    - stage: test
+      addons:
+        sonarcloud:
+          organization: mua-inc
+      script:
+        - npm run test:sonar
+        - sonar-scanner
