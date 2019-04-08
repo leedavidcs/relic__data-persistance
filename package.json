@@ -62,6 +62,7 @@
 		"all": true,
 		"cache": false,
 		"check-coverage": true,
+		"lines": 80,
 		"extension": [
 			".ts"
 		],
