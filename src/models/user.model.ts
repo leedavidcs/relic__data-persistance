@@ -4,7 +4,7 @@ enum AuthProvider {
 	Local = "Local"
 }
 
-interface IUser extends Document, SchemaTimestampsConfig {
+export interface IUser extends Document, SchemaTimestampsConfig {
 	authProvider: AuthProvider;
 	email: string;
 	password: string;

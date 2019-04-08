@@ -1,6 +1,6 @@
 import { GraphQLList } from "graphql";
-import { User } from "../../../models/user.model";
 import { notNull } from "../utils";
+import { mutationCreateUser, mutationDeleteUser, mutationUpdateUser, queryUsers } from "./resolvers";
 import { UserProps, UserType } from "./types";
 
 const { _id, authProvider, email, password, username } = UserProps;
@@ -9,7 +9,7 @@ const { _id, authProvider, email, password, username } = UserProps;
 export const UserQuerySchema = {
 	Users: {
 		description: "List all users",
-		resolve: (root, args) => User.find(args),
+		resolve: queryUsers,
 		type: new GraphQLList(UserType),
 		args: UserProps
 	}
@@ -18,9 +18,7 @@ export const UserQuerySchema = {
 export const UserMutationSchema = {
 	CreateUser: {
 		description: "Create a user",
-		resolve: () => {
-			return;
-		},
+		resolve: mutationCreateUser,
 		type: UserType,
 		args: {
 			...notNull({ authProvider, email, username }),
@@ -29,9 +27,7 @@ export const UserMutationSchema = {
 	},
 	UpdateUser: {
 		description: "Updates a user",
-		resolve: () => {
-			return;
-		},
+		resolve: mutationUpdateUser,
 		type: UserType,
 		args: {
 			...notNull({ _id }),
@@ -42,9 +38,7 @@ export const UserMutationSchema = {
 	},
 	DeleteUser: {
 		description: "Delete a user",
-		resolve: () => {
-			return;
-		},
+		resolve: mutationDeleteUser,
 		type: UserType,
 		args: notNull({ _id })
 	}
