@@ -1,4 +1,5 @@
 import { GraphQLObjectType, GraphQLSchema, GraphQLString } from "graphql";
+import { UserMutationSchema, UserQuerySchema } from "./user";
 
 /* tslint:disable:object-literal-sort-keys */
 export const schema = new GraphQLSchema({
@@ -9,7 +10,8 @@ export const schema = new GraphQLSchema({
 				description: "A simple type to get started",
 				resolve: () => "World!",
 				type: GraphQLString
-			}
+			},
+			...UserQuerySchema
 		}
 	}),
 	mutation: new GraphQLObjectType({
@@ -19,7 +21,8 @@ export const schema = new GraphQLSchema({
 				description: "A simple type for getting started!",
 				resolve: () => "Testing...",
 				type: GraphQLString
-			}
+			},
+			...UserMutationSchema
 		}
 	})
 });
